@@ -8,9 +8,7 @@ https://github.com/nurutomo/wabot-aq
 
 Base KannaChan: -
 
-Recode By Zukashika:
-https://youtu.be/1SHj3T4qRnM`
-
+Recode By Hanz
 
 let td = 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
 conn.reply(m.chat, info, m, { contextInfo: { externalAdReply: {title: global.nameown, body: `Jangan Lupa Subscribe`, sourceUrl: snh, thumbnail: fs.readFileSync('./thumbnail.jpg')  }}})
