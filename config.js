@@ -351,7 +351,7 @@ global.hwaifu = ['https://i.pinimg.com/originals/ed/34/f8/ed34f88af161e6278993e1
 'https://i.pinimg.com/originals/8d/04/9a/8d049a1e6951491b24ea4c364f2459bc.jpg',
 'https://i.pinimg.com/originals/fd/21/41/fd21419275236bb153de3c8dcbbf3bf9.jpg',
 'https://i.pinimg.com/originals/80/4f/1a/804f1a05f9996c96a2d492b4854b7fd5.jpg']
-
+global.thumbnail = 'https://telegra.ph/file/a3c05063b7a746260d553.jpg'
 /*============== TEXT ==============*/
 global.wait = '_*Loading*_ ...'
 global.eror = '```404 error```'
