@@ -352,8 +352,8 @@ const listMessage = {
       }
       global.opts['swonly'] = isEnable
       break
-    default:
-      if (!/[01]/.test(command)) return await conn.sendMessage(m.chat, listMessage, fdoc)
+      default:
+      if (!/[01]/.test(command)) return await conn.sendMessage(m.chat, listMessage)
       throw false
   }
   
