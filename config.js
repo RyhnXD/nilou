@@ -356,6 +356,7 @@ global.thumbnail = 'https://telegra.ph/file/a3c05063b7a746260d553.jpg'
 global.wait = '_*Loading*_ ...'
 global.eror = '```404 error```'
 global.fkontak = '6289524208209@Whatsapp.net'
+global.fdoc = 'https://telegra.ph/file/a3c05063b7a746260d553.jpg'
 
 /*=========== TYPE DOCUMENT ===========*/
 global.dpptx = 'application/vnd.openxmlformats-officedocument.presentationml.presentation'
