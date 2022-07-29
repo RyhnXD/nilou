@@ -41,7 +41,7 @@ async function handler(m, { command }) {
     }
 }
 handler.help = ['start', 'leave', 'next']
-handler.tags = ['cari temen']
+handler.tags = ['anonymous']
 handler.command = ['start', 'leave', 'next']
 
 handler.private = true
