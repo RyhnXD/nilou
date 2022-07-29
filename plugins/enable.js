@@ -13,6 +13,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
 	{title: "🔞 | Antitoxic", rowId: `${usedPrefix + command} antitoxic`},
 	{title: "⏏️ | Autolevelup", rowId: `${usedPrefix + command} autolevelup`},
 	{title: "🔎 | Detect", rowId: `${usedPrefix + command} detect`},
+        {title: "👤 | Auto Join", rowId: `${usedPrefix + command} autojoin`},
 	{title: "📑 | Document", rowId: `${usedPrefix + command} document`},
 	{title: "👤 | WhiteListMyContact", rowId: `${usedPrefix + command} whitelistmycontact`},
 	{title: "❗ | Restrict", rowId: `${usedPrefix + command} restrick`},
