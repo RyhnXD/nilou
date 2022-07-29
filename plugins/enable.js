@@ -105,6 +105,13 @@ const listMessage = {
         if (!(isAdmin || isOwner)) {
           global.dfail('admin', m, conn)
           throw false
+          break
+      case 'autojoin':
+        if (!isROwner) {
+          global.dfail('rowner', m, conn)
+          throw false
+        }
+      chat.autoJoin = isEnable
         }
       }
       chat.antiLink = isEnable
