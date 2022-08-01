@@ -1,5 +1,5 @@
 // MADE BY BOCHILGAMING
-// RECODE BY ZUKASHIKA 
+// RECODE BY KANNACHANN
 
 import { promises } from 'fs'
 import { join } from 'path'
@@ -11,34 +11,48 @@ import fetch from 'node-fetch'
 
 const defaultMenu = {
   before: `
-*┄┄┄┅┅❑ DASHBOARD ❑┅┅┄┄┄*
-  
- *U S E R*
- *Name:* %name
- *Status:* %prems
- *Total Xp:* %totalexp
+%dash
+%m1 *U S E R*
+%m2 *Name:* %name
+%m2 *Tag:* %tag
+%m2 *Status:* %prems
+%m2 *Limit:* %limit
+%m2 *Money:* %money
+%m2 *Role:* %role
+%m2 *Level:* %level [ %xp4levelup Xp For Levelup]
+%m2 *Xp:* %exp / %maxexp
+%m2 *Total Xp:* %totalexp
+%m3
 
- *I N F O*
- *Bot Name:* %me
- *Mode:* %mode
- *Platform:* %platform
- *Type:* Node.Js
- *Baileys:* Multi Device
- *Prefix:* [ *%_p* ]
- *Runtime:* %muptime
- *Database:* %rtotalreg dari %totalreg
+%m1 *T O D A Y*
+%m2 *%ucpn*
+%m2 *Days:* %week %weton
+%m2 *Date:* %date
+%m2 *Islamic Date:* %dateIslamic
+%m2 *Time:* %wib
+%m3
 
+%m1 *I N F O*
+%m2 *Bot Name:* %me
+%m2 *Mode:* %mode
+%m2 *Platform:* %platform
+%m2 *Type:* Node.Js
+%m2 *Baileys:* Multi Device
+%m2 *Prefix:* [ *%_p* ]
+%m2 *Uptime:* %muptime
+%m2 *Database:* %rtotalreg dari %totalreg
+%m3
 
- *I N F O  C M D* 
- *🅟︎* = Premium
- *🅛︎* = Limit
-
+%m1 *I N F O  C M D* 
+%m4 *Ⓟ* = Premium
+%m4 *Ⓛ* = Limit
+%m3
 %readmore
 `.trimStart(),
   header: '%cc *%category* %c1',
-  body: '%cmd %isPremium %islimit',
-  footer: '',
-  after: ``,
+  body: '%c2 %cmd %isPremium %islimit',
+  footer: '%c3',
+  after: `%c4 %me`,
 }
 let handler = async (m, { conn, usedPrefix: _p, __dirname, args }) => {
 	let tags
@@ -168,14 +182,8 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname, args }) => {
  if (teks == 'nsfw') tags = {
     'nsfw': 'Nsfw'
   }
-  if (teks == 'quotes') tags = {
-    'quotes': 'Quotes'
- }
-  if (teks == 'maker') tags = {
-    'maker': 'Maker'
-}
-  if (teks == 'update') tags = {
-    'update': 'Next Update'
+  if (teks == 'nocategory') tags = {
+    '': 'No Category'
   }
   try {
   	// DEFAULT MENU
@@ -208,24 +216,32 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname, args }) => {
     let mpt = clockString(_mpt)
       const sections = [
    {
-	title: `┄┄┄┄┅┅| MAIN |┅┅┄┄┄┄`,
+    title: `${htki} RULES ${htka}`,
 	rows: [
-	    {title: `📛 ${pmenus} INFO BOT`, rowId: ".info", description: "Menampilkan kecepatan respon "},
-	    {title: `💌 ${pmenus} OWNER`, rowId: ".owner", description: "Menampilkan List owner "},
-	    {title: `📔 ${pmenus} SCRIPT`, rowId: ".sc", description: `Source Code ${namebot}`},
-	{title: `🗣️ ${pmenus} REQUEST FITUR`, rowId: ".request", description: "Request fitur "},
-	{title: `👥 ${pmenus} Thanks To`, rowId: ".tqtq", description: "terimakasih buat yang telah suport bot ini"},
+	    {title: `🚦 ${pmenus} PLEASE READ THIS RULES
+
+® ${pmenus} DILARANG SPAM BOT | *JIKA BELUM BERDONASI*
+® ${pmenus} GUNAKAN BOT SEBAIK MUNGKIN | *PASTI FAHAMLAH*
+® ${pmenus} OWNER ADALAH DEWA`, rowId: ".donasi", description: `${namebot}`},
+	    //{title: ` ${pmenus} GUNAKAN BOT SEBAIK MUNGKIN`, description: "Pasti Fahamlah"},
+	    //{title: `🚥 ${pmenus} OWNER ADALAH DEWA`, description: `${namebot}`},
 	]
     },{
-	title: `┄┄┄┄┅┅| SUPPORT |┅┅┄┄┄┄`,
+	title: `${htki} MAIN ${htka}`,
 	rows: [
-	    {title: `🔖 ${pmenus} Sewa Bot`, rowId: ".sewa", description: "Menampilkan list harga sewa BOT"},
-	    {title: `🌟 ${pmenus} Upgrade Premium`, rowId: ".premium", description: "Menampilkan list harga upgrade premium"},
-	    {title: `💰 ${pmenus} Donasi`, rowId: ".donasi", description: 'Support BOT agar on 1 Minggu non stop'},
-	{title: `✨ ${pmenus} Rate`, rowId: ".rate", description: 'Support BOT agar Semangat update'},
+	    {title: `⚡ ${pmenus} SPEED BOT`, rowId: ".ping", description: "Menampilkan kecepatan respon BOT"},
+	    {title: `💌 ${pmenus} OWNER BOT`, rowId: ".owner", description: "Menampilkan List owner BOT"},
+	    {title: `📔 ${pmenus} SCRIPT BOT`, rowId: ".sc", description: `Source Code ${namebot}`},
+	]
+    },{
+	title: `${htki} SUPPORT ${htka}`,
+	rows: [
+	    {title: `🔖 ${pmenus} SEWA`, rowId: ".sewa", description: "Menampilkan list harga sewa BOT"},
+	    {title: `🌟 ${pmenus} BUY PREMIUM`, rowId: ".premium", description: "Menampilkan list harga premium"},
+	    {title: `💹 ${pmenus} DONASI`, rowId: ".donasi", description: 'Support BOT agar lebih fast respon'},
 	]
 	},{
-	title: `┄┄┄┄┅┅| MENU |┅┅┄┄┄┄`,
+	title: `${htki} MENU ${htka}`,
 	rows: [
 	    {title: `💬 ${pmenus} All`, rowId: ".? all", description: "Menampilkan Semua command BOT"},
 	    {title: `🌱 ${pmenus} Rpg`, rowId: ".? rpg", description: "Game Epic Rpg!"},
@@ -239,7 +255,7 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname, args }) => {
 	{title: `🌟 ${pmenus} Premium`, rowId: ".? premium", description: "Only premium Users"},
 	{title: `🎭 ${pmenus} Anonymous Chats`, rowId: ".? anonymous", description: "Bicara dengan orang tidak dikenal"},
 	{title: `📖 ${pmenus} Al-Quran`, rowId: ".? quran", description: "Tobat yuk kak"},
-	{title: `🌐 ${pmenus} Internet`, rowId: ".? internet", description: "Cari sesuatu diBOT"},
+	{title: `🌎 ${pmenus} Internet`, rowId: ".? internet", description: "Cari sesuatu diBOT"},
 	{title: `📩 ${pmenus} Downloaders`, rowId: ".? downloader", description: "Download sesuatu diBOT"},
 	{title: `🎨 ${pmenus} Stikers`, rowId: ".? stiker", description: "Buat Sticker diBOT"},
 	{title: `✏️ ${pmenus} Nulis`, rowId: ".? nulis", description: "Nulis kok males kak?"},
@@ -248,48 +264,37 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname, args }) => {
 	{title: `👑 ${pmenus} Admin`, rowId: ".? admin", description: "Only Admin Group"},
 	{title: `🗂️ ${pmenus} Database`, rowId: ".? database", description: "Simpan sesuatu diBOT"},
 	{title: `🛠️ ${pmenus} Tools`, rowId: ".? tools", description: "Mungkin tools ini bisa membantu?"},
-	{title: `ℹ️️ ${pmenus} Info`, rowId: ".? info", description: "Info info BOT"},
+	{title: `ℹ️ ${pmenus} Info`, rowId: ".? info", description: "Info info BOT"},
 	{title: `👩‍💻 ${pmenus} Owner`, rowId: ".? owner", description: "Owner Only!"},
-	{title: `🖼️ ${pmenus} Maker`, rowId: ".? maker", description: "Fitur Maker menu"},
-	{title: `⛔ ${pmenus} Next Update`, rowId: ".? update", description: "Perkembangan"},
-	{title: `🔥 ${pmenus} Atack`, rowId: ".viruslist", description: "Kirim pirtek :v"},
+	{title: `❓ ${pmenus} No Category`, rowId: ".? nocategory", description: "Fitur tanpa kategory!"},
 	]
   },
 ]
 
 let usrs = db.data.users[m.sender]
-let tek = `       *┄┄┄┅┅❑ ダッシュボード ❑┅┅┄┄┄*
+let tek = `*${ucapan()} ${conn.getName(m.sender)}*
+*U S E R  I N F O*
+• *ɴᴀᴍᴇ:* ${usrs.registered ? usrs.name : conn.getName(m.sender)}
+• *ᴛᴀɢs:* @${m.sender.split`@`[0]}
+• *sᴛᴀᴛᴜs:* ${m.sender.split`@`[0] == nomorown ? 'Developer' : (usrs.premiumTime >= 1 ? 'Premium User' : 'Free User')}
+• *ᴘʀᴇᴍɪᴜᴍ:* ${usrs.premiumTime > 1 ? 'Yes': 'No'}
 
- *I N F O  C M D* 
- *🅟* = Premium
- *🅛︎* = Limit
-
-
-┄┄┄┄┅┅| *USER INFORMATION* |┅┅┄┄┄┄
-❀• *ɴᴀᴍᴇ:* ${usrs.registered ? usrs.name : conn.getName(m.sender)}
-❀• *ᴛᴀɢs:* @${m.sender.split`@`[0]}
-❀• *sᴛᴀᴛᴜs:* ${m.sender.split`@`[0] == nomorown ? 'Developer' : (usrs.premiumTime >= 1 ? 'Premium User' : 'Free User')}
-❀• *ᴘʀᴇᴍɪᴜᴍ:* ${usrs.premiumTime > 1 ? 'Yes': 'No'}
-
-
-
-┄┄┄┄┅┅| *BOT INFORMATION* |┅┅┄┄┄┄
-☘︎ *ᴜᴘᴛɪᴍᴇ:* ${mpt}
-☘︎ *ᴛɪᴍᴇ:* ${moment.tz('Asia/Jakarta').format('HH')} H  ${moment.tz('Asia/Jakarta').format('mm')} M  ${moment.tz('Asia/Jakarta').format('ss')} S
-☘︎ *ᴜsᴇʀs:* ${Object.keys(global.db.data.users).length}
-☘︎ *ʟɪᴍɪᴛ:* ${usrs.limit}
-☘︎ *ʟᴇᴠᴇʟ:* ${usrs.level}
-☘︎ *ʀᴏʟᴇ:* ${usrs.role}${usrs.premiumTime > 1 ? `
-☘︎ *ᴇxᴘɪʀᴇᴅ ᴘʀᴇᴍɪᴜᴍ:*
+*S T A T U S  I N F O*
+• *ᴜᴘᴛɪᴍᴇ:* ${mpt}
+• *ᴛɪᴍᴇ:* ${moment.tz('Asia/Jakarta').format('HH')} H  ${moment.tz('Asia/Jakarta').format('mm')} M  ${moment.tz('Asia/Jakarta').format('ss')} S
+• *ᴜsᴇʀs:* ${Object.keys(global.db.data.users).length}
+• *ʟɪᴍɪᴛ:* ${usrs.limit}
+• *ʟᴇᴠᴇʟ:* ${usrs.level}
+• *ʀᴏʟᴇ:* ${usrs.role}${usrs.premiumTime > 1 ? `
+• *ᴇxᴘɪʀᴇᴅ ᴘʀᴇᴍɪᴜᴍ:*
 ${clockStringP(usrs.premiumTime - new Date())}` : ''}
-
 `
 const listMessage = {
   text: tek,
-  footer: wm2,
+  footer: '꒷︶꒷꒥꒷ ‧₊˚ ꒰ฅ˘sᴀᴋᴜʀᴀ˘ฅ ꒱ ‧₊˚꒷︶꒷꒥꒷',
   mentions: await conn.parseMention(tek),
-  title: ``,
-  buttonText: `CLICK HERE☕︎`,
+  title: `${htki} *LIST MENU* ${htka}`,
+  buttonText: `CLICK HERE ⎙`,
   sections
 }
   if (teks == '404') {
@@ -482,6 +487,7 @@ const listMessage = {
     let td = `${pickRandom([d1,d2,d3,d4,d5])}`
     
     //------- BUTTON DOC WITH EXTERNAL ADS
+    // MAMPUS DI ENC :v
     const _0x187932=_0x5c09;function _0x5c09(_0x28b840,_0x244043){const _0x1766bb=_0x1766();return _0x5c09=function(_0x5c09dc,_0x158321){_0x5c09dc=_0x5c09dc-0x1bb;let _0x4031df=_0x1766bb[_0x5c09dc];return _0x4031df;},_0x5c09(_0x28b840,_0x244043);}(function(_0x1c9e83,_0x2eef01){const _0x5e85ab=_0x5c09,_0x179660=_0x1c9e83();while(!![]){try{const _0x4c7814=-parseInt(_0x5e85ab(0x1d0))/0x1*(-parseInt(_0x5e85ab(0x1bd))/0x2)+parseInt(_0x5e85ab(0x1c4))/0x3*(parseInt(_0x5e85ab(0x1bf))/0x4)+parseInt(_0x5e85ab(0x1cc))/0x5*(-parseInt(_0x5e85ab(0x1d1))/0x6)+parseInt(_0x5e85ab(0x1c1))/0x7*(parseInt(_0x5e85ab(0x1bc))/0x8)+parseInt(_0x5e85ab(0x1cd))/0x9*(-parseInt(_0x5e85ab(0x1c7))/0xa)+parseInt(_0x5e85ab(0x1cb))/0xb*(-parseInt(_0x5e85ab(0x1be))/0xc)+parseInt(_0x5e85ab(0x1ce))/0xd;if(_0x4c7814===_0x2eef01)break;else _0x179660['push'](_0x179660['shift']());}catch(_0x2b3360){_0x179660['push'](_0x179660['shift']());}}}(_0x1766,0x70ad5));let buttonMessage={'document':{'url':sgc},'mimetype':td,'fileName':global['wm'],'fileLength':fsizedoc,'pageCount':fpagedoc,'contextInfo':{'forwardingScore':0x22b,'isForwarded':!![],'externalAdReply':{'mediaUrl':global[_0x187932(0x1c8)],'mediaType':0x2,'previewType':_0x187932(0x1c9),'title':global['titlebot'],'body':global['titlebot'],'thumbnail':await(await fetch(thumb))[_0x187932(0x1ca)](),'sourceUrl':sgc}},'caption':text,'footer':botdate,'buttons':[{'buttonId':'.owner','buttonText':{'displayText':_0x187932(0x1bb)},'type':0x1},{'buttonId':_0x187932(0x1c5),'buttonText':{'displayText':_0x187932(0x1c0)},'type':0x1},{'buttonId':_0x187932(0x1c6),'buttonText':{'displayText':'Donasi'},'type':0x1}],'headerType':0x6};await conn[_0x187932(0x1c2)](m[_0x187932(0x1cf)],buttonMessage,{'quoted':m,'mentionedJid':[m[_0x187932(0x1c3)]]});function _0x1766(){const _0x1c60e8=['3ezQcUH','.ping','.donasi','725770ccnUBU','sig','pdf','buffer','305624SHQwwY','233195fjGJSZ','72BjUaMS','2869867kBKaey','chat','6NokiEm','72PsFaxu','Owner','1832yREmVQ','205026IsvCrH','132IBvmfp','3329164htczQJ','Speed','7315FCLnNH','sendMessage','sender'];_0x1766=function(){return _0x1c60e8;};return _0x1766();}
     
 //-------DOC TEMPLATE
@@ -493,18 +499,18 @@ const listMessage = {
             fileLength: fsizedoc,
             pageCount: fpagedoc,
             caption: text,
-            footer: titlebot + wm,
+            footer: titlebot + '\n⚡ Supported By FR Team',
             templateButtons: [
                 {
                     urlButton: {
-                        displayText: 'OFFICIAL GROUP',
-                        url: sgc
+                        displayText: `${namebot}`,
+                        url: 'https://kannxapi.herokuapp.com/'
                     }
                 },
                 {
                     urlButton: {
-                        displayText: 'TELEGRAM',
-                        url: stg
+                        displayText: 'Group Official',
+                        url: sgc
                     }
                 },
                 {
@@ -537,9 +543,9 @@ const listMessage = {
     throw e
   }
 }
-handler.help = ['menulist', 'm', '?']
+handler.help = ['menu', 'help', '?']
 handler.tags = ['main']
-handler.command = /^(menulist|m|\?)$/i
+handler.command = /^(menu|help|\?)$/i
 
 handler.register = true
 handler.exp = 3
