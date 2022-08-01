@@ -31,7 +31,7 @@ global.sig = 'https://www.instagram.com/kontol_elite'
 global.sgh = 'https://github.com/Jikarinka'
 global.sgc = 'https://chat.whatsapp.com/FF1Bd1U0FHu42rfz6uplbn'
 global.sdc = " "
-global.snh = 'https://nhentai.net/g/365296/'
+global.snh = 'wa.me/6289524208209'
 
 /*============== PAYMENT ==============*/
 global.pdana = '085334930628'
