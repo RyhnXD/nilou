@@ -108,9 +108,9 @@ global.author = global.wm3
 
 
 /*============== LOGO ==============*/
-global.thumb = 'https://telegra.ph/file/caa111869b8abcb8e8678.jpg' //Main Thumbnail
+global.thumb = '' //Main Thumbnail
 global.thumb2 = 'https://telegra.ph/file/caa111869b8abcb8e8678.jpg'
-global.thumbbc = 'https://telegra.ph/file/caa111869b8abcb8e8678.jpg' //For broadcast
+global.thumbbc = 'https://telegra.ph/file/caa111869b8abcb8e8678.jpg' //For broadchttps://telegra.ph/file/caa111869b8abcb8e8678.jpgast
 global.giflogo = 'https://telegra.ph/file/4d564d4989363c663f9bf.jpg'
 
 global.fla = 'https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=sketch-name&doScale=true&scaleWidth=800&scaleHeight=500&fontsize=100&fillTextType=1&fillTextPattern=Warning!&text='
@@ -126,11 +126,14 @@ global.dxlsx = 'application/vnd.openxmlformats-officedocument.spreadsheetml.shee
 global.dpdf = 'application/pdf'
 global.drtf = 'text/rtf'
 
+
 global.thumbdoc = 'https://telegra.ph/file/4d564d4989363c663f9bf.jpg'
 
 /*=========== FAKE SIZE ===========*/
 global.fsizedoc = '99999999999999' // default 10TB
 global.fpagedoc = '999'
+global.fdoc = 'wa.me/6289524208209'
+global.thumbnail = 'https://telegra.ph/file/caa111869b8abcb8e8678.jpg'
 
 /*=========== HIASAN ===========*/
 // DEFAULT MENU
